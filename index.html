@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peru Mikhuna | Sabor Peruano en Inca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hero" id="inicio">
+    <div class="hero-bg-zoom"></div> <div class="overlay"></div>
+    
+    <div class="hero-content">
+        <div class="hero-text-wrapper">
+            <span class="hero-subtitle">Experiencia Gastronómica A1</span>
+            <h1 class="hero-title">Peru Mikhuna</h1>
+            <div class="hero-divider"></div>
+        
+            <div class="hero-btns">
+                <a href="#platos" class="btn-main">Explorar Carta</a>
+                <a href="https://wa.me/34632642310" class="btn-sub">Reservar Mesa</a>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo-link">
+                    <img src="img/logo.png" alt="Peru Mikhuna" class="logo-img">
+                </a>
+        
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+        
+                <ul class="nav-menu">
+                    <li><a href="#platos" class="nav-item">Platos</a></li>
+                    <li><a href="#horarios" class="nav-item">Horarios</a></li>
+                    <li><a href="#ubicacion" class="nav-item">Ubicación</a></li>
+                    <li><a href="#contacto" class="nav-item btn-reserva">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- NOSOTROS -->
+<section id="nosotros" class="about-section">
+    <div class="about-container">
+        <div class="about-image reveal-left">
+            <img src="img/nosotros.png" alt="Experiencia Peru Mikhuna">
+            <div class="image-experience">
+                <span>10+</span>
+                <p>Años de Tradición</p>
+            </div>
+        </div>
+
+        <div class="about-text reveal-right">
+            <span class="subtitle">Nuestra Historia</span>
+            <h2>Pasión por la Gastronomía <br><span class="highlight">Peruana en España</span></h2>
+            <p>En <strong>Peru Mikhuna</strong>, hemos cruzado el océano...</p>
+            </div>
+    </div>
+</section>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Cuando el elemento entra en pantalla, añade la clase activa
+                entry.target.classList.add('reveal-active');
+            }
+        });
+    }, {
+        threshold: 0.2 // Se activa cuando el 20% del elemento es visible
+    });
+
+    // Seleccionamos los elementos a animar
+    const elementsToReveal = document.querySelectorAll('.reveal-left, .reveal-right');
+    elementsToReveal.forEach((el) => observer.observe(el));
+</script>
+<!-- PLATOS -->
+<section id="platos" class="section">
+    <h2>Nuestros Platos</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="img/ceviche.jpeg" alt="Ceviche">
+            <h3>Ceviche</h3>
+        </div>
+        <div class="card">
+            <img src="img/jalea.webp" alt="Jalea Mixta">
+            <h3>Jalea Mixta</h3>
+        </div>
+        <div class="card">
+            <img src="img/brasa.webp" alt="Pollo a la Brasa">
+            <h3>Pollo a la Brasa <span>(vie – sáb – dom)</span></h3>
+        </div>
+        <div class="card">
+            <img src="img/pobre.jfif" alt="Lomo a lo Pobre">
+            <h3>Lomo a lo Pobre</h3>
+        </div>
+        <div class="card">
+            <img src="img/tallarinsaltado.webp" alt="Tallarín Saltado">
+            <h3>Tallarín Saltado Pobre</h3>
+        </div>
+        <div class="card">
+            <img src="img/broster.jpeg" alt="Pollo Broster">
+            <h3>Pollo Broster</h3>
+        </div>
+        <div class="card">
+            <img src="img/duo.jpg" alt="Dúo Marino">
+            <h3>Dúo Marino</h3>
+        </div>
+        <div class="card">
+            <img src="img/trio.jpeg" alt="Trío Marino">
+            <h3>Trío Marino</h3>
+        </div>
+    </div>
+</section>
+
+<!-- HORARIOS -->
+<section id="horarios" class="schedules-section">
+    <div class="schedules-container reveal-active">
+        <span class="subtitle-gold">Tu momento Peru Mikhuna</span>
+        <h2>Horarios de <span class="highlight-red">Cocina</span></h2>
+        
+        <div class="schedules-wrapper">
+            <div class="schedule-box">
+                <div class="icon-box"><i class="far fa-clock"></i></div>
+                <h3>Martes a Sábados</h3>
+                <div class="time-slots">
+                    <p><strong>Almuerzo:</strong> 1:00 pm – 4:00 pm</p>
+                    <p><strong>Cena:</strong> 7:00 pm – 10:30 pm</p>
+                </div>
+            </div>
+
+            <div class="schedule-box gold-border">
+                <div class="icon-box"><i class="fas fa-utensils"></i></div>
+                <h3>Domingos</h3>
+                <div class="time-slots">
+                    <p class="all-day">9:00 am – 9:00 pm</p>
+                    <span class="tag-ininterrumpido">Horario Ininterrumpido</span>
+                </div>
+            </div>
+        </div>
+        
+        <p class="lunes-cerrado">Lunes: Cerrado por descanso del personal</p>
+    </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section id="ubicacion" class="section">
+    <h2>Ubicación</h2>
+    <p>📍 Av. Reyes Católicos 77 – Inca</p>
+    <img src="img/mapa.png" alt="Local Peru Mikhuna" class="local-img">
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact-section">
+    <div class="contact-container">
+        <h2 style="color: #fff; font-size: 2.5rem; margin-bottom: 10px;">Contacto y Pedidos</h2>
+        <p style="color: #d4af37; letter-spacing: 2px;">ATENCIÓN PERSONALIZADA</p>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Reservas</h3>
+                <a href="tel:+34632642310" class="contact-btn">632 642 310</a>
+            </div>
+            <div class="contact-card" style="border-color: #c00000;">
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/34664661999" class="contact-btn">664 661 999</a>
+                <a href="https://wa.me/34642193369" class="contact-btn">642 193 369</a>
+            </div>
+            <div class="contact-card">
+                <h3>Redes Sociales</h3>
+                <p>@PeruMikhuna</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Boton de whatsapp-->
+<a href="https://wa.me/34632642310" 
+   class="whatsapp-flotante" 
+   target="_blank"
+   aria-label="Chatea por WhatsApp">
+  <img src="img/whatsapp.png" alt="WhatsApp">
+</a>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="img/logo.png" alt="Peru Mikhuna Logo">
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-info">
+            <p>© 2026 Peru Mikhuna | Sabor Peruano en Inca</p>
+            <p class="creator">By Jorge Yataco Torres</p>
+        </div>
+    </div>
+</footer>

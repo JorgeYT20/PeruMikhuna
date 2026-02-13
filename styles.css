@@ -1,0 +1,723 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    color: #222;
+    line-height: 1.6;
+}
+
+/* --------------------------------Configuraciones Globales para la Navbar */
+:root {
+    --rojo-peru: #c00000;
+    --oscuro: #121212;
+    --blanco: #ffffff;
+}
+
+.navbar {
+    background-color: var(--oscuro);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    position: fixed; /* Se mantiene arriba */
+    top: 0;
+    width: 100vw; /* Cambia 100% por 100vw para asegurar el ancho de pantalla */
+    left: 0;      /* Asegura que empiece pegado a la izquierda */
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 30px;
+}
+
+.logo-img {
+    height: 60px;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.nav-item {
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--rojo-peru);
+}
+
+/* Botón especial de contacto */
+.btn-reserva {
+    background-color: var(--rojo-peru);
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.btn-reserva:hover {
+    background-color: #fff;
+    color: var(--rojo-peru) !important;
+}
+
+/* --- DISEÑO MÓVIL --- */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        top: 80px;
+        left: -100%; /* Escondido */
+        opacity: 1;
+        transition: all 0.5s ease;
+        background: var(--oscuro);
+    }
+
+    .nav-menu.active {
+        left: 0; /* Aparece */
+        opacity: 1;
+    }
+
+    .nav-item {
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .menu-toggle {
+        color: #fff;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+}
+
+
+/* ----------------------------------------------HERO ---------------------------------------------*/
+/* --- MEJORAS EN LA PORTADA (HERO) --- */
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Importante para que el zoom no se salga */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efecto Zoom Suave en el Fondo */
+.hero-bg-zoom {
+    position: absolute;
+    inset: 0;
+    background: url('img/mesas.jpeg') center/cover no-repeat;
+    animation: backgroundZoom 20s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes backgroundZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    color: #000000;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+/* Animaciones de Texto */
+.hero-subtitle {
+    display: block;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #d4af37; /* Color Dorado Elegante */
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 8vw, 6rem); /* Se adapta al tamaño de pantalla */
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+
+.hero-divider {
+    width: 80px;
+    height: 4px;
+    background: #c00;
+    margin: 0 auto 25px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 1s;
+}
+
+.hero-description {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 1.2s;
+}
+
+/* Botones Modernos */
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 1.5s;
+}
+
+.btn-main {
+    background: #c00;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #c00;
+}
+
+.btn-main:hover {
+    background: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(192, 0, 0, 0.4);
+}
+
+.btn-sub {
+    background: transparent;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.btn-sub:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+/* Keyframes para la entrada suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+
+
+/* ------------------------SECTIONS ---------------------------*/
+.section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.dark {
+    background: #111;
+    color: #fff;
+}
+/* ------------------------ SECCIÓN QUIENES SOMOS ------------------ */
+.about-section {
+    padding: 100px 20px;
+    background-color: #fff;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide en dos columnas iguales */
+    gap: 60px;
+    align-items: center;
+}
+
+/* Estilos de la Imagen */
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px var(--rojo-peru); /* Decoración elegante */
+    transition: var(--transicion);
+}
+
+.about-image:hover img {
+    transform: scale(1.02);
+}
+
+.image-experience {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--oscuro);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.image-experience span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--rojo-peru);
+}
+
+/* Estilos del Texto */
+.about-text .subtitle {
+    color: var(--rojo-peru);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin: 15px 0 25px;
+    line-height: 1.2;
+    font-family: 'Playfair Display', serif; /* Si la añadiste antes */
+}
+
+.about-text .highlight {
+    color: var(--rojo-peru);
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.about-features {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: var(--oscuro);
+}
+
+.feat i {
+    color: var(--rojo-peru);
+    font-size: 1.5rem;
+}
+
+/* --- RESPONSIVE QUIENES SOMOS --- */
+@media screen and (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr; /* Una sola columna en tablets y móviles */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-image img {
+        box-shadow: 10px 10px 0px var(--rojo-peru);
+    }
+
+    .about-features {
+        justify-content: center;
+    }
+
+    .image-experience {
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+/* Estado inicial: Oculto y desplazado */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px); /* Viene de la izquierda */
+    transition: all 1s ease-out;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px); /* Viene de la derecha */
+    transition: all 1s ease-out;
+}
+
+/* Estado final: Visible y en su posición (clase que pondrá JS) */
+.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ---------------------PLATOS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 15px;
+}
+
+.card span {
+    font-size: .85rem;
+    color: #c00;
+}
+
+/* ---------------------HORARIOS --------------------*/
+/* --- ESTILOS EXCLUSIVOS DE HORARIOS --- */
+.schedules-section {
+    padding: 100px 20px;
+    background-color: #0a0a0a; /* Fondo negro profundo */
+    color: #ffffff;            /* Texto blanco obligatorio */
+    text-align: center;
+}
+
+.schedules-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.subtitle-gold {
+    color: #d4af37; /* Dorado elegante */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.highlight-red {
+    color: #c00000; /* Rojo Perú */
+}
+
+.schedules-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Para que en celular se pongan uno abajo de otro */
+}
+
+.schedule-box {
+    background: rgba(255, 255, 255, 0.05); /* Fondo gris muy sutil */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    min-width: 280px;
+    transition: 0.3s;
+}
+
+.schedule-box:hover {
+    border-color: #c00000;
+    transform: translateY(-5px);
+}
+
+.gold-border {
+    border: 1px solid #d4af37; /* El domingo resalta en dorado */
+}
+
+.schedule-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.time-slots p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #e0e0e0; /* Gris claro para los párrafos */
+}
+
+.all-day {
+    font-size: 1.4rem !important;
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.tag-ininterrumpido {
+    background: #c00000;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.lunes-cerrado {
+    margin-top: 40px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Ajuste móvil */
+@media (max-width: 600px) {
+    .schedules-wrapper {
+        flex-direction: column;
+    }
+}
+/* ---------------------------CONTACTO ---------------------*/
+/* --- SECCIÓN CONTACTO PROFESIONAL --- */
+.contact-section {
+    padding: 100px 20px;
+    background-color: #0a0a0a !important; /* Negro profundo para legibilidad total */
+    position: relative;
+    text-align: center;
+    color: #ffffff !important; /* Texto blanco puro */
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Tarjetas con contraste */
+.contact-card {
+    background: rgba(255, 255, 255, 0.05); /* Fondo gris muy sutil */
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.contact-card:hover {
+    border-color: #c00000; /* Rojo Perú al pasar el mouse */
+    transform: translateY(-10px);
+}
+
+.contact-card h3 {
+    color: #d4af37; /* Dorado para los títulos */
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.contact-card p {
+    color: #cccccc; /* Gris claro para las descripciones */
+    margin-bottom: 20px;
+}
+
+/* Estilo para los números de teléfono */
+.contact-btn, .phone-group a {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: block;
+    margin: 10px 0;
+}
+
+.contact-btn:hover, .phone-group a:hover {
+    color: #c00000 !important;
+}
+
+/* Tarjeta Destacada */
+.highlight-card {
+    border: 1px solid #c00000;
+    background: rgba(192, 0, 0, 0.05);
+}
+
+.delivery-info {
+    margin-top: 50px;
+    font-size: 1.1rem;
+    color: #ccc;
+    padding: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+}
+
+.delivery-info i {
+    color: #ffc107; /* Color amarillo Glovo */
+    margin-right: 10px;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ---------------------------UBICACIÓN ---------------------*/
+.local-img {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 25px;
+    border-radius: 15px;
+}
+
+/* ---------------------------FOOTER ------------------------*/
+/* --- FOOTER ELEGANTE --- */
+.main-footer {
+    background-color: #050505 !important; /* Negro casi total */
+    padding: 60px 20px 30px;
+    color: #ffffff !important;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.3); /* Línea dorada sutil */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    width: 70px;
+    margin-bottom: 20px;
+    filter: brightness(1.2);
+}
+
+.footer-social {
+    margin-bottom: 25px;
+}
+
+.footer-social a {
+    color: #d4af37; /* Dorado */
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    color: #c00000; /* Rojo al pasar el mouse */
+}
+
+.footer-info p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+/* Crédito del creador */
+.creator {
+    font-size: 0.8rem !important;
+    color: #d4af37 !important; /* Nombre en dorado */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-weight: 300;
+}
+ /* logo Whatsapp flotante */
+
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 55px;
+    height: 55px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 50px rgba(45,212,191,0.9);
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+                  
+.whatsapp-flotante img {
+    width: 90px;
+    height: 90px;
+}
+                  
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+}
+                  
+                
