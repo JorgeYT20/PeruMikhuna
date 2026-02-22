@@ -1,0 +1,163 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --card-bg: #151515;
+    --gold: #d4af37;
+    --rojo: #c00000;
+    --white: #ffffff;
+    --gray-text: #a0a0a0;
+}
+
+body.carta-body {
+    background-color: var(--bg-dark);
+    color: var(--white);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+
+.carta-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(0,0,0,0.95);
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nav-back {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.nav-logo-central {
+    height: 45px;
+    margin: 0 auto;
+}
+
+.btn-reservar-nav {
+    background: var(--gold);
+    color: black;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.btn-reservar-nav:hover {
+    background: #c9a62f;
+    transform: translateY(-2px);
+}
+
+
+
+/* Header */
+.carta-header {
+    height: 400px;
+    background: linear-gradient(rgba(0,0,0,0.5), var(--bg-dark)), url('img/mesas.jpeg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.header-content h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin-bottom: 5px; }
+.header-content p { color: var(--gold); font-style: italic; letter-spacing: 1px; }
+
+/* Filtros */
+.filter-container {
+    background: var(--bg-dark);
+    position: sticky;
+    top: 80px;
+    z-index: 999;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--gold);
+}
+
+.filter-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 5%;
+    scrollbar-width: none;
+}
+
+.filter-btn {
+    background: #1a1a1a;
+    color: var(--white);
+    border: 1px solid #333;
+    padding: 10px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 0.75rem;
+    transition: 0.3s;
+}
+
+.filter-btn.active { background: var(--gold); color: black; border-color: var(--gold); }
+
+/* Grid */
+.menu-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+.category-section { margin-bottom: 60px; }
+.category-title {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.category-title::after { content: ""; flex: 1; height: 1px; background: #333; }
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    border: 1px solid #222;
+}
+
+.menu-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+
+.card-img-wrapper { position: relative; height: 200px; background: #222; }
+.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+.badge-rec {
+    position: absolute; top: 10px; left: 10px;
+    background: var(--gold); color: black;
+    padding: 4px 10px; font-size: 0.65rem; font-weight: 700; border-radius: 4px;
+}
+
+.card-info { padding: 20px; }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.card-header h3 { font-size: 1.1rem; text-transform: uppercase; margin: 0; }
+.price { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
+
+/* Animaciones */
+.hidden { display: none; }
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
