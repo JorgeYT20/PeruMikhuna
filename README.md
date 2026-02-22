@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 [Visita la página aquí](https://tousuario.github.io/tu-repositorio/)
+## 🚀 [Visita la página aquí](https://jorgeyt20.github.io/PeruMikhuna/)
 *(Nota: Asegúrate de reemplazar este enlace con el link real de GitHub Pages una vez lo publiques)*
 
 ---
@@ -29,7 +29,7 @@
 ![Preview de Peru Mikhuna](img/mesas.jpeg)
 
 ## ✍️ Desarrollador
-Este proyecto fue desarrollado y diseñado con orgullo por:
+Este proyecto fue desarrollado y diseñado por:
 **Jorge Yataco Torres**
 
 ---
