@@ -452,6 +452,61 @@ body {
     color: #c00;
 }
 
+/* Botón ver más platos  */
+.acceso-carta {
+    margin-top: 40px;
+    padding: 25px 30px;
+    background: transparent; /* ❌ quitamos fondo negro */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* 👉 alineado a los platos */
+}
+
+.btn-ver-carta {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--rojo-peru);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ver-carta:hover {
+    background-color: transparent;
+    border-color: var(--rojo-peru);
+    color: var(--rojo-peru);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(192, 0, 0, 0.3);
+}
+
+.btn-ver-carta svg {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-ver-carta:hover svg {
+    transform: translateX(5px);
+}
+
+/* Efecto de click */
+.btn-ver-carta:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .acceso-carta {
+        justify-content: center;
+    }
+}
+
 /* ---------------------HORARIOS --------------------*/
 /* --- ESTILOS EXCLUSIVOS DE HORARIOS --- */
 .schedules-section {
@@ -643,7 +698,6 @@ body {
 }
 
 /* ---------------------------FOOTER ------------------------*/
-/* --- FOOTER ELEGANTE --- */
 .main-footer {
     background-color: #050505 !important; /* Negro casi total */
     padding: 60px 20px 30px;
